@@ -73,12 +73,14 @@ jobs:
           curl -sS -O https://dl.google.com/android/repository/commandlinetools-linux-9477386_latest.zip
           unzip -q commandlinetools-linux-9477386_latest.zip
           mkdir -p tools/bin
-          # Buildozer expects tools/bin/sdkmanager
           cp -r cmdline-tools/bin/* tools/bin/
           cp -r cmdline-tools/lib tools/
           yes | tools/bin/sdkmanager --sdk_root="$SDK_DIR" --licenses || true
 
       - name: Build APK with Buildozer
+        env:
+          CFLAGS: "-Wno-incompatible-function-pointer-types -Wno-implicit-function-declaration -Wno-int-conversion"
+          TARGET_CFLAGS: "-Wno-incompatible-function-pointer-types -Wno-implicit-function-declaration -Wno-int-conversion"
         run: |
           buildozer -v android debug
 
