@@ -5,7 +5,7 @@ package.domain = org.vanyalgrw.thimbles
 source.dir = .
 source.include_exts = py,png,jpg,kv,atlas,txt
 version = 1.0.0
-requirements = python3,kivy==2.3.0
+requirements = python3==3.11.9,hostpython3==3.11.9,kivy==2.3.0
 orientation = portrait
 fullscreen = 0
 
@@ -19,6 +19,6 @@ android.minapi = 21
 android.ndk = 25b
 android.build_tools_version = 33.0.2
 android.accept_sdk_license = True
-android.archs = arm64-v8a, armeabi-v7a
+android.archs = arm64-v8a
 android.allow_backup = True
 p4a.branch = master
